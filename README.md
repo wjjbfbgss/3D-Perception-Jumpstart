@@ -82,7 +82,7 @@ Where:
 
 ### Phase 2 (Weeks 3-4): Depth + stereo
 - Learn disparity-depth relationship:
-  `Z ≈ (f * B) / d`  
+  `Z = (f * B) / d`  
   where `f` = focal length, `B` = baseline, `d` = disparity.
 - Build a mini stereo depth demo.
 
