@@ -1,10 +1,11 @@
 # 3D-Perception-Jumpstart
 
-beginner-first guide for understanding how machines perceive 3D scenes from sensors (camera, LiDAR, depth).
-Camera-based systems still count as 3D perception because 3D structure can be inferred from:
+Beginner-first guide for understanding how machines perceive 3D scenes from sensors (camera, LiDAR, depth).
+Camera-based systems still count as 3D perception because 3D structure can be reconstructed from:
 - multi-view geometry (stereo)
 - motion over time (structure from motion / visual odometry)
 - learned monocular depth
+Unlike LiDAR, cameras do not directly measure depth for each point.
 
 ---
 
@@ -47,7 +48,8 @@ Sensors (RGB / Stereo / LiDAR / IMU)
 ```
 
 When each stage is required:
-- **Calibration + Time Sync**: required when fusing multiple sensors (e.g., camera + LiDAR + IMU), using stereo rigs, or working with time-sequence data where alignment affects geometry.
+- **Calibration + Time Sync**: required when fusing multiple sensors, using stereo rigs, or working with time-sequence data where alignment affects geometry.
+  - Example fusion setup: camera + LiDAR + IMU
 - **Geometry Estimation**: required when depth/3D structure is not directly given and must be inferred from images or reconstructed from observations.
 - **Localization & Mapping**: required when the platform moves and you need consistent pose tracking, trajectory estimation, or a map over time.
 
