@@ -84,7 +84,7 @@ Where:
 
 ---
 
-## 7) How to use this repository
+## 4) How to use this repository
 
 Use this repository as a personal learning notebook:
 - Track what topic you finished each week.
