@@ -1,6 +1,6 @@
 # 3D-Perception-Jumpstart
 
-Beginner-first guide for understanding how machines perceive 3D scenes from sensors (camera, LiDAR, depth).
+beginner-first guide for understanding how machines perceive 3D scenes from sensors (camera, LiDAR, depth).
 Camera-based systems still count as 3D perception because 3D structure can be inferred from:
 - multi-view geometry (stereo)
 - motion over time (structure from motion / visual odometry)
