@@ -1,6 +1,7 @@
 # 3D-Perception-Jumpstart
 
-Beginner-first learning plan for understanding how machines perceive 3D scenes from sensors (camera, LiDAR, depth).
+Beginner-first guide for understanding how machines perceive 3D scenes from sensors (camera, LiDAR, depth).  
+Camera-based systems still count as 3D perception because 3D structure can be inferred from multi-view geometry (stereo), motion over time (SfM/VO), or learned monocular depth.
 
 ---
 
@@ -42,6 +43,11 @@ Sensors (RGB / Stereo / LiDAR / IMU)
       Planning / Robotics / AR / Analytics
 ```
 
+When each stage is required:
+- **Calibration + Time Sync**: required when fusing multiple sensors (for example camera + LiDAR + IMU), using stereo rigs, or working with time-sequence data where alignment affects geometry.
+- **Geometry Estimation**: required when depth/3D structure is not directly given and must be inferred from images or reconstructed from observations.
+- **Localization & Mapping**: required when the platform moves and you need consistent pose tracking, trajectory estimation, or a map over time.
+
 ---
 
 ## 3) Technical foundations to learn first
@@ -70,54 +76,6 @@ Where:
 - LiDAR returns sparse 3D points `(x, y, z)` with optional intensity.
 - Advantages: metric depth directly measured.
 - Trade-off: sparsity + sensor noise + occlusion.
-
----
-
-## 4) Suggested learning plan (8 weeks)
-
-### Phase 1 (Weeks 1-2): Coordinate systems + projection
-- Learn homogeneous transforms and frame chaining.
-- Implement simple 3D-to-2D projection in Python.
-- Validate with synthetic points.
-
-### Phase 2 (Weeks 3-4): Depth + stereo
-- Learn disparity-depth relationship:
-  `Z = (f * B) / d`  
-  where `f` = focal length, `B` = baseline, `d` = disparity.
-- Build a mini stereo depth demo.
-
-### Phase 3 (Weeks 5-6): Visual odometry / SLAM basics
-- Feature extraction + matching.
-- Relative pose estimation (essential matrix / PnP intuition).
-- Understand drift and loop closure conceptually.
-
-### Phase 4 (Weeks 7-8): 3D detection or segmentation
-- Learn point cloud preprocessing (voxelization/downsampling).
-- Train/evaluate one baseline model.
-- Report precision/recall and common error cases.
-
----
-
-## 5) Study checklist for beginners
-
-- [ ] I can explain coordinate frames (world, camera, sensor).
-- [ ] I can derive basic pinhole projection equations.
-- [ ] I can explain the disparity-to-depth relationship.
-- [ ] I can describe why odometry drifts over time.
-- [ ] I can run one small 3D perception experiment end-to-end.
-
----
-
-## 6) Minimal project ideas
-
-1. **Monocular depth sanity checker**  
-   Compare depth maps across indoor vs outdoor scenes and write failure analysis.
-
-2. **Stereo reconstruction mini-lab**  
-   Estimate disparity and convert to point cloud.
-
-3. **LiDAR object clustering**  
-   Segment ground plane + cluster obstacles with classical methods.
 
 ---
 
